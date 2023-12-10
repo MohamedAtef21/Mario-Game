@@ -5,7 +5,7 @@ class MushroomView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 35,
       width: 35,
       child: Image.asset("assets/images/mushroom.png"),

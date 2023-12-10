@@ -58,7 +58,7 @@ class _MarioViewState extends State<MarioView> {
     if (midjump == false) {
       midjump = true;
       preJump();
-      Timer.periodic(Duration(milliseconds: 50), (timer) {
+      Timer.periodic(const Duration(milliseconds: 50), (timer) {
         time += 0.05;
         height = -4.9 * time * time + 5 * time;
 
@@ -77,6 +77,7 @@ class _MarioViewState extends State<MarioView> {
     }
   }
 
+  @override
   void initState(){
     mushroomX = Random().nextDouble() * 2 - 1;
     mushroomY = 1;
@@ -85,9 +86,9 @@ class _MarioViewState extends State<MarioView> {
   void moveRight() {
     direction = "right";
     atemushroom();
-    Timer.periodic(Duration(milliseconds: 50), (timer) {
+    Timer.periodic(const Duration(milliseconds: 50), (timer) {
       atemushroom();
-      if (MarioButtonView().userIsHoldingButtonDown() == true && (marioX + 0.02) < 1) {
+      if (const MarioButtonView().userIsHoldingButtonDown() == true && (marioX + 0.02) < 1) {
         setState(() {
           marioX += 0.02;
           midrun = !midrun;
@@ -100,9 +101,9 @@ class _MarioViewState extends State<MarioView> {
   void moveLeft() {
     direction = "left";
     atemushroom();
-    Timer.periodic(Duration(milliseconds: 50), (timer) {
+    Timer.periodic(const Duration(milliseconds: 50), (timer) {
       atemushroom();
-      if (MarioButtonView().userIsHoldingButtonDown() == true && (marioX - 0.02) > -1) {
+      if (const MarioButtonView().userIsHoldingButtonDown() == true && (marioX - 0.02) > -1) {
         setState(() {
           marioX -= 0.02;
           midrun = !midrun;
@@ -127,7 +128,7 @@ class _MarioViewState extends State<MarioView> {
                   color: Colors.blue,
                   child: AnimatedContainer(
                     alignment: Alignment(marioX, marioY),
-                    duration: Duration(microseconds: 0),
+                    duration: const Duration(microseconds: 0),
                     child: midjump
                         ? JumpView(
                             direction: direction,
@@ -142,14 +143,14 @@ class _MarioViewState extends State<MarioView> {
                 ),
                 Container(
                   alignment: Alignment(mushroomX, mushroomY),
-                  child: MushroomView(),
+                  child: const MushroomView(),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: 45),
+                  padding: const EdgeInsets.only(top: 45),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Column(
+                      const Column(
                         children: [
                           Text(
                             "MARIO",
@@ -172,7 +173,7 @@ class _MarioViewState extends State<MarioView> {
                       ),
                       Column(
                         children: [
-                          Text(
+                          const Text(
                             "SCORE",
                             style: TextStyle(
                                 fontSize: 30,
@@ -181,17 +182,17 @@ class _MarioViewState extends State<MarioView> {
                           ),
                           Text(
                             "$score",
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 30,
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 10,
                           ),
                         ],
                       ),
-                      Column(
+                      const Column(
                         children: [
                           Text(
                             "TIME",
@@ -230,25 +231,25 @@ class _MarioViewState extends State<MarioView> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   MarioButtonView(
-                    child: Icon(
+                    function: moveLeft,
+                    child: const Icon(
                       Icons.arrow_back,
                       color: Colors.white,
                     ),
-                    function: moveLeft,
                   ),
                   MarioButtonView(
-                    child: Icon(
+                    function: jump,
+                    child: const Icon(
                       Icons.arrow_upward,
                       color: Colors.white,
                     ),
-                    function: jump,
                   ),
                   MarioButtonView(
-                    child: Icon(
+                    function: moveRight,
+                    child: const Icon(
                       Icons.arrow_forward,
                       color: Colors.white,
                     ),
-                    function: moveRight,
                   ),
                 ],
               ),

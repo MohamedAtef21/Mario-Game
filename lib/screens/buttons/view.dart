@@ -5,7 +5,7 @@ class MarioButtonView extends StatelessWidget {
   final child;
   final function;
   static bool holdingButton = false;
-  MarioButtonView({this.child, this.function});
+  const MarioButtonView({super.key, this.child, this.function});
 
   bool userIsHoldingButtonDown(){
     return holdingButton;
@@ -22,7 +22,7 @@ class MarioButtonView extends StatelessWidget {
         holdingButton = false;
       },
       child: Container(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
           color: Colors.brown[300],
           child: child,
       ),

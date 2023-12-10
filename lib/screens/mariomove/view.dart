@@ -8,13 +8,13 @@ class MyMarioView extends StatelessWidget {
   final midrun;
   final size;
 
-  MyMarioView({this.direction, this.midrun, this.size});
+  const MyMarioView({super.key, this.direction, this.midrun, this.size});
 
 
   @override
   Widget build(BuildContext context) {
     if (direction == "right"){
-      return Container(
+      return SizedBox(
         width: size,
         height: size,
         child: midrun ? Image.asset("assets/images/mario_stand.png"):
@@ -24,7 +24,7 @@ class MyMarioView extends StatelessWidget {
       return Transform(
         alignment: Alignment.center,
         transform: Matrix4.rotationY(pi),
-        child: Container(
+        child: SizedBox(
           width: size,
           height: size,
           child: midrun ? Image.asset("assets/images/mario_stand.png"):

@@ -7,12 +7,12 @@ class JumpView extends StatelessWidget {
   final direction;
   final size;
 
-  JumpView({this.direction,this.size});
+  const JumpView({super.key, this.direction,this.size});
 
   @override
   Widget build(BuildContext context) {
     if (direction == "right"){
-      return Container(
+      return SizedBox(
         width: size,
         height: size,
         child: Image.asset("assets/images/mario_jump.png"),
@@ -21,7 +21,7 @@ class JumpView extends StatelessWidget {
       return Transform(
         alignment: Alignment.center,
         transform: Matrix4.rotationY(pi),
-        child: Container(
+        child: SizedBox(
           width: size,
           height: size,
           child: Image.asset("assets/images/mario_jump.png"),

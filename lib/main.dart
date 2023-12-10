@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:mario/screens/mario/view.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
+  SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: PageView(
-        children: [
+        children: const [
           MarioView(),
         ],
       ),
