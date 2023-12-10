@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mario/screens/buttons/view.dart';
 import 'package:mario/screens/mariomove/view.dart';
 import 'package:mario/screens/mushroom/view.dart';
@@ -31,14 +32,14 @@ class _MarioViewState extends State<MarioView> {
         (marioY - mushroomY).abs() < 0.05) {
       setState(() {
         mushroomX = 2;
-        if (!marioAteMushroom){
+        if (!marioAteMushroom) {
           // marioSize = 70;
           score += 100; // increase score when mushroom is eaten
           marioAteMushroom = true; // set flag to indicate mushroom is eaten
         }
       });
     }
-    if (mushroomX < -1 || mushroomX > 1 || mushroomY < 0){
+    if (mushroomX < -1 || mushroomX > 1 || mushroomY < 0) {
       setState(() {
         mushroomX = Random().nextDouble() * 2 - 1;
         mushroomY = 1;
@@ -46,7 +47,6 @@ class _MarioViewState extends State<MarioView> {
       });
     }
   }
-
 
   void preJump() {
     time = 0;
@@ -78,7 +78,7 @@ class _MarioViewState extends State<MarioView> {
   }
 
   @override
-  void initState(){
+  void initState() {
     mushroomX = Random().nextDouble() * 2 - 1;
     mushroomY = 1;
   }
@@ -88,7 +88,8 @@ class _MarioViewState extends State<MarioView> {
     atemushroom();
     Timer.periodic(const Duration(milliseconds: 50), (timer) {
       atemushroom();
-      if (const MarioButtonView().userIsHoldingButtonDown() == true && (marioX + 0.02) < 1) {
+      if (const MarioButtonView().userIsHoldingButtonDown() == true &&
+          (marioX + 0.02) < 1) {
         setState(() {
           marioX += 0.02;
           midrun = !midrun;
@@ -103,7 +104,8 @@ class _MarioViewState extends State<MarioView> {
     atemushroom();
     Timer.periodic(const Duration(milliseconds: 50), (timer) {
       atemushroom();
-      if (const MarioButtonView().userIsHoldingButtonDown() == true && (marioX - 0.02) > -1) {
+      if (const MarioButtonView().userIsHoldingButtonDown() == true &&
+          (marioX - 0.02) > -1) {
         setState(() {
           marioX -= 0.02;
           midrun = !midrun;
@@ -115,6 +117,7 @@ class _MarioViewState extends State<MarioView> {
 
   int score = 0;
   bool marioAteMushroom = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -150,67 +153,79 @@ class _MarioViewState extends State<MarioView> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      const Column(
+                      Column(
                         children: [
                           Text(
                             "MARIO",
-                            style: TextStyle(
+                            style: GoogleFonts.gothicA1(
+                              textStyle: const TextStyle(
                                 fontSize: 30,
                                 color: Colors.white,
-                                fontWeight: FontWeight.bold),
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                           ),
                           Text(
                             "00",
-                            style: TextStyle(
+                            style: GoogleFonts.gothicA1(
+                              textStyle: const TextStyle(
                                 fontSize: 30,
                                 color: Colors.white,
-                                fontWeight: FontWeight.bold),
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                           ),
-                          SizedBox(
-                            height: 10,
-                          ),
+                          const SizedBox(height: 10),
                         ],
                       ),
                       Column(
                         children: [
-                          const Text(
+                          Text(
                             "SCORE",
-                            style: TextStyle(
+                            style: GoogleFonts.gothicA1(
+                              textStyle: const TextStyle(
                                 fontSize: 30,
                                 color: Colors.white,
-                                fontWeight: FontWeight.bold),
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                           ),
                           Text(
                             "$score",
-                            style: const TextStyle(
+                            style: GoogleFonts.gothicA1(
+                              textStyle: const TextStyle(
                                 fontSize: 30,
                                 color: Colors.white,
-                                fontWeight: FontWeight.bold),
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                           ),
-                          const SizedBox(
-                            height: 10,
-                          ),
+                          const SizedBox(height: 10),
                         ],
                       ),
-                      const Column(
+                      Column(
                         children: [
                           Text(
                             "TIME",
-                            style: TextStyle(
+                            style: GoogleFonts.gothicA1(
+                              textStyle: const TextStyle(
                                 fontSize: 30,
                                 color: Colors.white,
-                                fontWeight: FontWeight.bold),
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                           ),
                           Text(
                             "9999",
-                            style: TextStyle(
+                            style: GoogleFonts.gothicA1(
+                              textStyle: const TextStyle(
                                 fontSize: 30,
                                 color: Colors.white,
-                                fontWeight: FontWeight.bold),
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                           ),
-                          SizedBox(
-                            height: 10,
-                          ),
+                          const SizedBox(height: 10),
                         ],
                       ),
                     ],
